@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monster_27
       objectReference: {fileID: 0}
+    - target: {fileID: 100132, guid: 2057f9c2906734bec89c4d8d0c44381d, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 400132, guid: 2057f9c2906734bec89c4d8d0c44381d, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -74,7 +78,13 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: d026ab0b276496649919c2d5d81d2a21, type: 2}
     - target: {fileID: 9500000, guid: 2057f9c2906734bec89c4d8d0c44381d, type: 3}
       propertyPath: m_WarningMessage
-      value: 
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
+        'mixamorig:LeftHandPinky2'\n\tTransform 'mixamorig:RightHandRing2'\n\tTransform
+        'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform 'mixamorig:RightArm'\n\tTransform
+        'mixamorig:LeftLeg'\n\tTransform 'mixamorig:LeftHandMiddle3'\n\tTransform
+        'mixamorig:LeftShoulder'\n\tand more ...\n\tFrom animation clip 'MonsterIdle'"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -88,6 +98,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8894846556855341376}
+    - targetCorrespondingSourceObject: {fileID: 100132, guid: 2057f9c2906734bec89c4d8d0c44381d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -4651294688890168919}
+    - targetCorrespondingSourceObject: {fileID: 100132, guid: 2057f9c2906734bec89c4d8d0c44381d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4875952398118937655}
   m_SourcePrefab: {fileID: 100100000, guid: 2057f9c2906734bec89c4d8d0c44381d, type: 3}
 --- !u!1 &8362563288588448355 stripped
 GameObject:
@@ -133,3 +151,59 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _currentWaypoint: 0
+  _inReverse: 0
+  hidingSpotsList: []
+  _nearestHidingSpot: {fileID: 0}
+  _cachedWaypoint: {fileID: 0}
+  _hideTime: 3
+  _wasHiding: 0
+  _animator: {fileID: 0}
+  _currentState: 0
+--- !u!65 &-4651294688890168919
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8362563288588448355}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.44772643, y: 1.899925, z: 0.37326124}
+  m_Center: {x: -0.0027353466, y: 0.9502746, z: -0.02912055}
+--- !u!54 &4875952398118937655
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8362563288588448355}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

@@ -13,12 +13,20 @@ public class BulletProjectile : MonoBehaviour
     void Start()
     {
         _bulletRigidBody = GetComponent<Rigidbody>();
-        _bulletRigidBody.velocity = Vector3.forward * _bulletSpeed;
+        _bulletRigidBody.velocity = transform.forward * _bulletSpeed;
+    }
+
+    private void Update()
+    {
+        Destroy(gameObject, 5.0f);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
+        if (other.transform.tag == "Column")
+        {
+            Destroy(gameObject);
+        }
     }
 
 }

@@ -12,18 +12,47 @@ public class AI : MonoBehaviour
     [SerializeField]
     private int _currentWaypoint;
 
+    [SerializeField]
     private bool _inReverse = false;
 
     private NavMeshAgent _agent;
 
+    [SerializeField]
+    private List<GameObject> hidingSpotsList = new List<GameObject>();
+
+    [SerializeField]
+    private Transform _nearestHidingSpot;
+
+    [SerializeField]
+    private Transform _cachedWaypoint;
+
+    [SerializeField]
+    private float _hideTime = 3.0f;
+
+    [SerializeField]
+    private bool _wasHiding;
+
+    [SerializeField]
+    private Animator _animator;
+
+    private enum AIState
+    {
+        Walking,
+        Hiding,
+        Death
+    }
+
+    [SerializeField]
+    private AIState _currentState;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        _animator = GetComponent<Animator>();
         _waypoints[0] = GameObject.Find("StartingPoint").GetComponent<Transform>();
         _waypoints[1] = GameObject.Find("EndPoint").GetComponent<Transform>();
-       
 
+        
         _agent = GetComponent<NavMeshAgent>();
         var _randomWaypoint = Random.Range(0, _waypoints.Count);
 
@@ -31,15 +60,37 @@ public class AI : MonoBehaviour
         {
             _agent.destination = _waypoints[_currentWaypoint].position;
         }
+
     }
+
+
 
     // Update is called once per frame
     void Update()
     {
-        CalculateAIMovenent();
+        FillHideSpots(18);
+
+        
+       
+        switch (_currentState)
+        {
+            case AIState.Walking:
+                CalculateAIMovenent();
+                break;
+            case AIState.Hiding:
+                Hiding();
+                break;
+            case AIState.Death:
+                           
+                break;
+        }
     }
     private void CalculateAIMovenent()
     {
+        _animator.SetBool("Walking", true);
+        _animator.SetBool("Hiding", false);
+        _agent.speed = 3.0f;
+        _agent.acceleration = 8.0f;
         if (_agent.remainingDistance < 0.5f)
         {
             if (_inReverse)
@@ -50,8 +101,16 @@ public class AI : MonoBehaviour
             {
                 Forward();
             }
-            _agent.SetDestination(_waypoints[_currentWaypoint].position);
-
+            if (!_wasHiding)
+            {
+                _agent.SetDestination(_waypoints[_currentWaypoint].position);
+                _cachedWaypoint = _waypoints[_currentWaypoint].transform;
+            }
+            else
+            {
+                _agent.SetDestination(_cachedWaypoint.position);
+                _wasHiding = false;
+            }           
             
         }
 
@@ -82,4 +141,68 @@ public class AI : MonoBehaviour
             _currentWaypoint--;
         }
     }
+
+    private void FillHideSpots(int _hideSpots)
+    {
+        hidingSpotsList.Clear();
+
+        for (int i = 0; i < _hideSpots; i++)
+        {
+            GameObject spot = GameObject.Find("HidingSpot" + i);
+            if (spot != null)
+            {
+                hidingSpotsList.Add(spot);
+            }
+        }
+
+        
+
+    }
+
+    public void HideStateChange()
+    {
+        _currentState = AIState.Hiding;
+    }
+    
+    private void Hiding()
+    {
+        _agent.SetDestination(_nearestHidingSpot.position);
+        _agent.speed = 7.0f;
+        _agent.acceleration = 16.0f;
+        _hideTime -= Time.deltaTime;
+        _wasHiding = true;
+        _animator.SetBool("Walking", false);
+        _animator.SetBool("Hiding", true);
+              
+        if (_hideTime <= 0)
+        {
+            _currentState = AIState.Walking;
+            _hideTime = Random.Range(3f, 6f);
+        }
+        
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.transform.tag == "Bullet")
+        {
+            _animator.SetTrigger("Die");
+            _agent.isStopped = true;
+            Invoke("Recycle", 3);
+        }
+
+        if(other.transform.tag == "HideSpot")
+        {
+            _nearestHidingSpot = other.transform;
+        }
+    }
+
+    void Recycle()
+    {
+        gameObject.SetActive(false);
+        _currentState = AIState.Walking;
+       gameObject.GetComponent<Collider>().enabled = true;
+    }
+
 }

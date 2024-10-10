@@ -1,43 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Shoot : MonoBehaviour
 {
     [SerializeField]
-    private Transform _aimLaser;
-    [SerializeField]
-    private LayerMask _aimColliderLayerMask = new LayerMask();
+    private GameObject _bulletPrefab;
 
     [SerializeField]
-    private GameObject _bulletPrefab;
+    private GameObject _muzzleFlash;
 
     [SerializeField]
     private Transform _firePoint;
 
-    private Vector3 _mouseWorldPosition;
+    [SerializeField]
+    private float _fireRate = 0.5f;
+
+    private float _canFire = -1.0f;
+
+    private AI _enemy;
 
     private void Update()
     {
-        Vector2 screenCenterPoint = new Vector2(Screen.width / 2, Screen.height / 2); 
-        Ray ray = Camera.main.ScreenPointToRay(screenCenterPoint);
-        if(Physics.Raycast(ray, out RaycastHit raycastHit, 999f, _aimColliderLayerMask))
-        {
-            _mouseWorldPosition = raycastHit.point;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time > _canFire)
         {
             Fire();
+        }
+
+        Vector2 mousePos = Mouse.current.position.ReadValue();
+        Ray rayOrigin = Camera.main.ScreenPointToRay(mousePos);
+        RaycastHit hit;
+        if (Physics.Raycast(rayOrigin, out hit))
+        {
+            if(hit.transform.tag == "Enemy")
+            {
+                _enemy = hit.transform.GetComponent<AI>();
+                _enemy.HideStateChange();
+            }
         }
     }
 
     private void Fire()
     {
-
-      Vector3 aimDirection = (_mouseWorldPosition - _firePoint.position).normalized;
-      Instantiate(_bulletPrefab, _firePoint.position, Quaternion.LookRotation(aimDirection, Vector3.up));
-
+        _canFire = Time.time + _fireRate;
+        Instantiate(_bulletPrefab, _firePoint.position, _firePoint.transform.rotation);
+        GameObject muzzleFlashInstantiated = Instantiate(_muzzleFlash, _firePoint.position, _firePoint.transform.rotation);
+        Destroy(muzzleFlashInstantiated, 1.0f);
     }
+
+    private void OnDrawGizmos()
+    {
+        Debug.DrawRay(_firePoint.transform.position, Vector3.forward, Color.red);
+    }
+
+
 
 }

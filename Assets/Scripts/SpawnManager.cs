@@ -4,40 +4,40 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    private static SpawnManager _instance;
-
     [SerializeField]
     private GameObject _spawnLocation;
 
+    private float _spawnTimer = 3.0f;
+
     [SerializeField]
-    private GameObject _enemyPrefab;
+    private bool _spawn;
 
-    private void Start()
+    private enum AIState
     {
-        StartSpawning();
+        Walking,
+        Hide,
+        Death
     }
 
-    public static SpawnManager Instance
-    {
-        get
-        {
-            if(_instance == null)
-            {
-                Debug.LogError("Spawn Manager Null");
-            }
-            return _instance;
-        }
-    }
 
-    private void Awake()
+    private void Update() 
     {
-        _instance = this;
         
     }
 
-    public void StartSpawning()
+    private void Start()
     {
-        Instantiate(_enemyPrefab, _spawnLocation.transform.position, Quaternion.identity);
+        StartCoroutine(SpawnEnemy());
+    }
+
+    IEnumerator SpawnEnemy()
+    {
+       while(true)
+        {
+            yield return new WaitForSeconds(_spawnTimer);
+            GameObject enemy = EnemyPool.Instance.RequestEnemy();
+            enemy.transform.position = _spawnLocation.transform.position;
+        }
     }
 
 }
