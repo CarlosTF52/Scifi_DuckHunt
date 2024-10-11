@@ -27,6 +27,9 @@ public class AI : MonoBehaviour
     private Transform _cachedWaypoint;
 
     [SerializeField]
+    private float _seekHidespot;
+
+    [SerializeField]
     private float _hideTime = 3.0f;
 
     [SerializeField]
@@ -52,7 +55,9 @@ public class AI : MonoBehaviour
         _waypoints[0] = GameObject.Find("StartingPoint").GetComponent<Transform>();
         _waypoints[1] = GameObject.Find("EndPoint").GetComponent<Transform>();
 
-        
+        _seekHidespot = Random.Range(3, 5);
+
+
         _agent = GetComponent<NavMeshAgent>();
         var _randomWaypoint = Random.Range(0, _waypoints.Count);
 
@@ -91,6 +96,7 @@ public class AI : MonoBehaviour
         _animator.SetBool("Hiding", false);
         _agent.speed = 3.0f;
         _agent.acceleration = 8.0f;
+        _seekHidespot -= Time.deltaTime;
         if (_agent.remainingDistance < 0.5f)
         {
             if (_inReverse)
@@ -112,6 +118,12 @@ public class AI : MonoBehaviour
                 _wasHiding = false;
             }           
             
+        }
+
+        if(_seekHidespot <= 0)
+        {
+            _currentState = AIState.Hiding;
+            _seekHidespot = Random.Range(3, 5);
         }
 
     }
@@ -159,10 +171,7 @@ public class AI : MonoBehaviour
 
     }
 
-    public void HideStateChange()
-    {
-        _currentState = AIState.Hiding;
-    }
+   
     
     private void Hiding()
     {
@@ -182,14 +191,19 @@ public class AI : MonoBehaviour
         
     }
 
+    public void Death()
+    {
+        _animator.SetTrigger("Die");
+        _agent.isStopped = true;
+        Invoke("Recycle", 3);
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.transform.tag == "Bullet")
         {
-            _animator.SetTrigger("Die");
-            _agent.isStopped = true;
-            Invoke("Recycle", 3);
+            
         }
 
         if(other.transform.tag == "HideSpot")

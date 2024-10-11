@@ -15,8 +15,8 @@ TagManager:
   - 
   - Water
   - UI
-  - _aimColliderLayerMask
-  - 
+  - Column
+  - Enemy
   - 
   - 
   - 

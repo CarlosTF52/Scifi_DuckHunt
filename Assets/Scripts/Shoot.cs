@@ -6,9 +6,6 @@ using UnityEngine.InputSystem;
 public class Shoot : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _bulletPrefab;
-
-    [SerializeField]
     private GameObject _muzzleFlash;
 
     [SerializeField]
@@ -19,7 +16,14 @@ public class Shoot : MonoBehaviour
 
     private float _canFire = -1.0f;
 
-    private AI _enemy;
+    [SerializeField]
+    private LayerMask _column;
+
+    [SerializeField]
+    private LayerMask _enemy;
+
+    private AI AI;
+
 
     private void Update()
     {
@@ -28,30 +32,40 @@ public class Shoot : MonoBehaviour
             Fire();
         }
 
-        Vector2 mousePos = Mouse.current.position.ReadValue();
-        Ray rayOrigin = Camera.main.ScreenPointToRay(mousePos);
-        RaycastHit hit;
-        if (Physics.Raycast(rayOrigin, out hit))
-        {
-            if(hit.transform.tag == "Enemy")
-            {
-                _enemy = hit.transform.GetComponent<AI>();
-                _enemy.HideStateChange();
-            }
-        }
+        
     }
 
     private void Fire()
     {
         _canFire = Time.time + _fireRate;
-        Instantiate(_bulletPrefab, _firePoint.position, _firePoint.transform.rotation);
+        Vector2 _crosshairPos = Mouse.current.position.ReadValue();
+        Ray rayOrigin = Camera.main.ScreenPointToRay(_crosshairPos);
+        RaycastHit hit;
+        if (Physics.Raycast(rayOrigin, out hit, Mathf.Infinity, _enemy | _column))
+        {
+            GameObject hitObject = hit.collider.gameObject;
+           
+            if (hitObject != null && hitObject.transform.tag == "Enemy")
+            {
+                AI = hitObject.GetComponent<AI>();
+                AI.Death();
+            }
+            else if(hitObject != null && hitObject.transform.tag == "Column")
+            {
+                Debug.Log("hit Column!");
+            }
+
+
+        }
+       
         GameObject muzzleFlashInstantiated = Instantiate(_muzzleFlash, _firePoint.position, _firePoint.transform.rotation);
         Destroy(muzzleFlashInstantiated, 1.0f);
     }
 
     private void OnDrawGizmos()
     {
-        Debug.DrawRay(_firePoint.transform.position, Vector3.forward, Color.red);
+        Vector2 _crosshairPos = Mouse.current.position.ReadValue();
+        Debug.DrawRay(_crosshairPos, Vector3.forward, Color.red);
     }
 
 

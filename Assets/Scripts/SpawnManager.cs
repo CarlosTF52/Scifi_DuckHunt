@@ -9,9 +9,6 @@ public class SpawnManager : MonoBehaviour
 
     private float _spawnTimer = 3.0f;
 
-    [SerializeField]
-    private bool _spawn;
-
     private enum AIState
     {
         Walking,
@@ -37,6 +34,7 @@ public class SpawnManager : MonoBehaviour
             yield return new WaitForSeconds(_spawnTimer);
             GameObject enemy = EnemyPool.Instance.RequestEnemy();
             enemy.transform.position = _spawnLocation.transform.position;
+            _spawnTimer = Random.Range(3, 5);
         }
     }
 
