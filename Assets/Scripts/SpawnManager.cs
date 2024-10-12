@@ -9,33 +9,33 @@ public class SpawnManager : MonoBehaviour
 
     private float _spawnTimer = 3.0f;
 
-    private enum AIState
-    {
-        Walking,
-        Hide,
-        Death
-    }
-
-
-    private void Update() 
-    {
-        
-    }
+    [SerializeField]
+    private int _totalEnemies = 0;
 
     private void Start()
     {
+        _totalEnemies = 30;
         StartCoroutine(SpawnEnemy());
+        EnemyCountInitialUIUpdate();
+        
     }
 
     IEnumerator SpawnEnemy()
     {
-       while(true)
+       while(_totalEnemies >= 0)
         {
             yield return new WaitForSeconds(_spawnTimer);
             GameObject enemy = EnemyPool.Instance.RequestEnemy();
             enemy.transform.position = _spawnLocation.transform.position;
             _spawnTimer = Random.Range(3, 5);
+            
         }
+    }
+
+    public void EnemyCountInitialUIUpdate()
+    {
+        
+        UIManager.Instance.SetEnemyCount(_totalEnemies);
     }
 
 }

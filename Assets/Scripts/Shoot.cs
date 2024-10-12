@@ -22,6 +22,13 @@ public class Shoot : MonoBehaviour
     [SerializeField]
     private LayerMask _enemy;
 
+    private int _scoreCount;
+
+    private int _enemyCount;
+
+    [SerializeField]
+    private AudioSource _fireSource;
+
     private AI AI;
 
 
@@ -38,6 +45,7 @@ public class Shoot : MonoBehaviour
     private void Fire()
     {
         _canFire = Time.time + _fireRate;
+        _fireSource.Play();
         Vector2 _crosshairPos = Mouse.current.position.ReadValue();
         Ray rayOrigin = Camera.main.ScreenPointToRay(_crosshairPos);
         RaycastHit hit;
@@ -48,6 +56,8 @@ public class Shoot : MonoBehaviour
             if (hitObject != null && hitObject.transform.tag == "Enemy")
             {
                 AI = hitObject.GetComponent<AI>();
+                PlayerScore(10);
+                EnemyCount(1);
                 AI.Death();
             }
             else if(hitObject != null && hitObject.transform.tag == "Column")
@@ -62,10 +72,16 @@ public class Shoot : MonoBehaviour
         Destroy(muzzleFlashInstantiated, 1.0f);
     }
 
-    private void OnDrawGizmos()
+    private void PlayerScore(int score)
     {
-        Vector2 _crosshairPos = Mouse.current.position.ReadValue();
-        Debug.DrawRay(_crosshairPos, Vector3.forward, Color.red);
+        _scoreCount = _scoreCount + score;
+        UIManager.Instance.UpdateScore(_scoreCount);
+    }
+
+    private void EnemyCount(int enemyCount)
+    {
+        _enemyCount = _enemyCount - enemyCount;
+        UIManager.Instance.UpdateEnemyCount(_enemyCount);
     }
 
 

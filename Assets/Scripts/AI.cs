@@ -38,6 +38,9 @@ public class AI : MonoBehaviour
     [SerializeField]
     private Animator _animator;
 
+    [SerializeField]
+    private int _enemyCount;
+
     private enum AIState
     {
         Walking,
@@ -54,7 +57,7 @@ public class AI : MonoBehaviour
         _animator = GetComponent<Animator>();
         _waypoints[0] = GameObject.Find("StartingPoint").GetComponent<Transform>();
         _waypoints[1] = GameObject.Find("EndPoint").GetComponent<Transform>();
-
+        _enemyCount = _enemyCount + 1;
         _seekHidespot = Random.Range(3, 5);
 
 
@@ -195,7 +198,7 @@ public class AI : MonoBehaviour
     {
         _animator.SetTrigger("Die");
         _agent.isStopped = true;
-        Invoke("Recycle", 3);
+        Invoke("Recycle", 3);       
     }
 
 
