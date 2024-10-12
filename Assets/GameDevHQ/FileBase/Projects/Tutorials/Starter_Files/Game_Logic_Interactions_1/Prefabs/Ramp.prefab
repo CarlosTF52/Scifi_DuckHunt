@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 70499757699000569}
   - component: {fileID: 70499757697673433}
   - component: {fileID: 70499757696707097}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scifi_Column_04 (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 8279825230166556478}
   - component: {fileID: 8109003792181243277}
   - component: {fileID: 2279024241660934588}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scifi_Column_04 (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 5101561746252935329}
   - component: {fileID: 8044996317099937322}
   - component: {fileID: 1289125305231272839}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scifi_Column_04 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4513320721007482567}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rail (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,7 +307,7 @@ GameObject:
   - component: {fileID: 1810705362411074265}
   - component: {fileID: 1810705362410304249}
   - component: {fileID: 1810705362409304121}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scifi_Column_04 (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   - component: {fileID: 2192259881886462619}
   - component: {fileID: 2192259881885168315}
   - component: {fileID: 2192259881884168315}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scifi_Column_04 (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -473,7 +473,7 @@ GameObject:
   - component: {fileID: 2339383332027248019}
   - component: {fileID: 2339383332023856563}
   - component: {fileID: 2339383332024954739}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scifi_Column_04 (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -557,7 +557,7 @@ GameObject:
   - component: {fileID: 8997754025429301547}
   - component: {fileID: 158048464015259788}
   - component: {fileID: 2883096531419780287}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Force Barrier (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -661,7 +661,7 @@ GameObject:
   - component: {fileID: 8728375257723819084}
   - component: {fileID: 5694421312548456464}
   - component: {fileID: 2113947330782418359}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scifi_Column_04 (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -745,7 +745,7 @@ GameObject:
   - component: {fileID: 9105943578911978949}
   - component: {fileID: 49890134911169634}
   - component: {fileID: 3063133740997679185}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Force Barrier (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -849,7 +849,7 @@ GameObject:
   - component: {fileID: 2630056953785158197}
   - component: {fileID: 2630056953784388117}
   - component: {fileID: 2630056953783257301}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scifi_Column_04 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -931,9 +931,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3497578304722307027}
   - component: {fileID: 4377030887939284339}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ramp
-  m_TagString: Untagged
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1005,7 +1005,7 @@ GameObject:
   - component: {fileID: 8929908077507943598}
   - component: {fileID: 361019926034619657}
   - component: {fileID: 3400719703614861626}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Force Barrier (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1110,7 +1110,7 @@ GameObject:
   - component: {fileID: 6341831141125983048}
   - component: {fileID: 8713229165869190709}
   - component: {fileID: 3698959443750034541}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Force Barrier (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1215,7 +1215,7 @@ GameObject:
   - component: {fileID: 6428184960589908698}
   - component: {fileID: 4636909137507103334}
   - component: {fileID: 8763528908157285487}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Force Barrier (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1320,7 +1320,7 @@ GameObject:
   - component: {fileID: 7583959254427999826}
   - component: {fileID: 1715963138732892149}
   - component: {fileID: 4459410644438201286}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Force Barrier (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1424,7 +1424,7 @@ GameObject:
   - component: {fileID: 281011775264939437}
   - component: {fileID: 3537282716779685722}
   - component: {fileID: 741573320285691600}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scifi_Column_04 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1507,7 +1507,7 @@ GameObject:
   - component: {fileID: 5307746553895468123}
   - component: {fileID: 5387110007868542779}
   - component: {fileID: 2227127239051043598}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scifi_Column_04 (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1591,7 +1591,7 @@ GameObject:
   - component: {fileID: 6088659608281078734}
   - component: {fileID: 2182915831838397868}
   - component: {fileID: 360790556364792028}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Force Barrier (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1695,7 +1695,7 @@ GameObject:
   - component: {fileID: 4731947717607636878}
   - component: {fileID: 4731947717604769710}
   - component: {fileID: 4731947717605735790}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scifi_Column_04 (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1778,7 +1778,7 @@ GameObject:
   - component: {fileID: 4874035029374202383}
   - component: {fileID: 4874035029373399599}
   - component: {fileID: 4874035029372432623}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scifi_Column_04 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1861,7 +1861,7 @@ GameObject:
   - component: {fileID: 8124044535952156925}
   - component: {fileID: 7108534128301667548}
   - component: {fileID: 337548527454699696}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scifi_Column_04 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1944,7 +1944,7 @@ GameObject:
   - component: {fileID: 5483116840330623296}
   - component: {fileID: 5483116840331393376}
   - component: {fileID: 5483116840332524448}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scifi_Column_04 (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2027,7 +2027,7 @@ GameObject:
   - component: {fileID: 2848966882124641316}
   - component: {fileID: 917525788967382184}
   - component: {fileID: 7514809329518951292}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scifi_Column_04 (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2111,7 +2111,7 @@ GameObject:
   - component: {fileID: 2040848383831896326}
   - component: {fileID: 9021654990872414396}
   - component: {fileID: 5848042349208506986}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Force Barrier (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2215,7 +2215,7 @@ GameObject:
   - component: {fileID: 7078033681071669042}
   - component: {fileID: 8473371082411636877}
   - component: {fileID: 4210479415012009896}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scifi_Column_04 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2298,7 +2298,7 @@ GameObject:
   - component: {fileID: 9113793771946854195}
   - component: {fileID: 6971805376721835217}
   - component: {fileID: 7017097644222732513}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scifi_Column_04 (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2379,7 +2379,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3852652321035412533}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rail (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2428,7 +2428,7 @@ GameObject:
   - component: {fileID: 7898029883595227610}
   - component: {fileID: 7898029883596030458}
   - component: {fileID: 7898029883596997434}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scifi_Column_04 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2511,7 +2511,7 @@ GameObject:
   - component: {fileID: 7922118038311579832}
   - component: {fileID: 7922118038314479768}
   - component: {fileID: 7922118038313480792}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scifi_Column_04 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2594,7 +2594,7 @@ GameObject:
   - component: {fileID: 1786213865671515300}
   - component: {fileID: 5218662141091096242}
   - component: {fileID: 386655800302243349}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scifi_Column_04 (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2677,7 +2677,7 @@ GameObject:
   - component: {fileID: 6300806970255832787}
   - component: {fileID: 2512490678876478564}
   - component: {fileID: 4611056622787885907}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scifi_Column_04 (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2761,7 +2761,7 @@ GameObject:
   - component: {fileID: 3423014931761710052}
   - component: {fileID: 5867922383538668099}
   - component: {fileID: 8889082473345052272}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Force Barrier (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2865,7 +2865,7 @@ GameObject:
   - component: {fileID: 3206341011066444621}
   - component: {fileID: 8283023186140437106}
   - component: {fileID: 117710016608610408}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scifi_Column_04 (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2949,7 +2949,7 @@ GameObject:
   - component: {fileID: 2723195911260643972}
   - component: {fileID: 1959892312242679395}
   - component: {fileID: 9072197126355357314}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Force Barrier (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3053,7 +3053,7 @@ GameObject:
   - component: {fileID: 5273338812561459637}
   - component: {fileID: 3780119923923006339}
   - component: {fileID: 7442522060297162618}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scifi_Floor_18 (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3136,7 +3136,7 @@ GameObject:
   - component: {fileID: 5273338812728785487}
   - component: {fileID: 3780119923728416889}
   - component: {fileID: 7442522059994725504}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scifi_Floor_18 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3219,7 +3219,7 @@ GameObject:
   - component: {fileID: 5273338812199501489}
   - component: {fileID: 3780119923215385735}
   - component: {fileID: 7442522059464947838}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scifi_Floor_18 (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3302,7 +3302,7 @@ GameObject:
   - component: {fileID: 5273338811356099619}
   - component: {fileID: 3780119922716577301}
   - component: {fileID: 7442522061507785452}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scifi_Floor_18 (78)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3385,7 +3385,7 @@ GameObject:
   - component: {fileID: 5273338811673235035}
   - component: {fileID: 3780119922632258669}
   - component: {fileID: 7442522061019580564}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scifi_Floor_18 (160)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3468,7 +3468,7 @@ GameObject:
   - component: {fileID: 5273338810759885058}
   - component: {fileID: 3780119922237016884}
   - component: {fileID: 7442522060910983117}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scifi_Floor_18 (77)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3552,6 +3552,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scifi_Column_04 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d6d4447ca9aba417baa61c0b7bbee7de, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d6d4447ca9aba417baa61c0b7bbee7de, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -3630,6 +3634,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: d6d4447ca9aba417baa61c0b7bbee7de, type: 3}
       propertyPath: m_Name
       value: Scifi_Column_04 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d6d4447ca9aba417baa61c0b7bbee7de, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d6d4447ca9aba417baa61c0b7bbee7de, type: 3}
       propertyPath: m_RootOrder
@@ -3710,6 +3718,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scifi_Column_04 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d6d4447ca9aba417baa61c0b7bbee7de, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d6d4447ca9aba417baa61c0b7bbee7de, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -3788,6 +3800,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: d6d4447ca9aba417baa61c0b7bbee7de, type: 3}
       propertyPath: m_Name
       value: Scifi_Column_04 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d6d4447ca9aba417baa61c0b7bbee7de, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d6d4447ca9aba417baa61c0b7bbee7de, type: 3}
       propertyPath: m_RootOrder
@@ -3868,6 +3884,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scifi_Column_04 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d6d4447ca9aba417baa61c0b7bbee7de, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d6d4447ca9aba417baa61c0b7bbee7de, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -3946,6 +3966,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: d6d4447ca9aba417baa61c0b7bbee7de, type: 3}
       propertyPath: m_Name
       value: Scifi_Column_04 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d6d4447ca9aba417baa61c0b7bbee7de, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d6d4447ca9aba417baa61c0b7bbee7de, type: 3}
       propertyPath: m_RootOrder
@@ -4026,6 +4050,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scifi_Column_04 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d6d4447ca9aba417baa61c0b7bbee7de, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d6d4447ca9aba417baa61c0b7bbee7de, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -4104,6 +4132,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: d6d4447ca9aba417baa61c0b7bbee7de, type: 3}
       propertyPath: m_Name
       value: Scifi_Column_04 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d6d4447ca9aba417baa61c0b7bbee7de, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d6d4447ca9aba417baa61c0b7bbee7de, type: 3}
       propertyPath: m_RootOrder
@@ -4184,6 +4216,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scifi_Column_04 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d6d4447ca9aba417baa61c0b7bbee7de, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d6d4447ca9aba417baa61c0b7bbee7de, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -4262,6 +4298,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: d6d4447ca9aba417baa61c0b7bbee7de, type: 3}
       propertyPath: m_Name
       value: Scifi_Column_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d6d4447ca9aba417baa61c0b7bbee7de, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d6d4447ca9aba417baa61c0b7bbee7de, type: 3}
       propertyPath: m_RootOrder

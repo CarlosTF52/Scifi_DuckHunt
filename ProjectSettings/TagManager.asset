@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Column
   - HideSpot
+  - Environment
+  - FinalSpot
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - UI
   - Column
   - Enemy
-  - 
+  - Environment
   - 
   - 
   - 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 
 public class AI : MonoBehaviour
@@ -41,6 +42,12 @@ public class AI : MonoBehaviour
     [SerializeField]
     private int _enemyCount;
 
+    [SerializeField]
+    private AudioSource _monsterDieSound;
+
+    [SerializeField]
+    private AudioSource _monsterEscapeSound;
+
     private enum AIState
     {
         Walking,
@@ -77,8 +84,6 @@ public class AI : MonoBehaviour
     void Update()
     {
         FillHideSpots(18);
-
-        
        
         switch (_currentState)
         {
@@ -89,7 +94,7 @@ public class AI : MonoBehaviour
                 Hiding();
                 break;
             case AIState.Death:
-                           
+                Death();          
                 break;
         }
     }
@@ -136,6 +141,7 @@ public class AI : MonoBehaviour
         {
             _inReverse = true;
             _currentWaypoint--;
+            
         }
         else
         {
@@ -198,7 +204,8 @@ public class AI : MonoBehaviour
     {
         _animator.SetTrigger("Die");
         _agent.isStopped = true;
-        Invoke("Recycle", 3);       
+        Invoke("Recycle", 3);  
+        _monsterDieSound.Play();
     }
 
 
@@ -212,6 +219,12 @@ public class AI : MonoBehaviour
         if(other.transform.tag == "HideSpot")
         {
             _nearestHidingSpot = other.transform;
+        }
+
+        if (other.transform.tag == "FinalSpot")
+        {
+            _monsterEscapeSound.Play();
+            SceneManager.LoadScene("DeathScene");
         }
     }
 

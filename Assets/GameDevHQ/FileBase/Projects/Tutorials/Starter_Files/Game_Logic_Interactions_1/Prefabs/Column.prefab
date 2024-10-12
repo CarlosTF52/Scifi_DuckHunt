@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7801654806803704217}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Column
-  m_TagString: Column
+  m_TagString: Environment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,7 +129,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: be416857152564e0aaab66b5a8eadd84,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: be416857152564e0aaab66b5a8eadd84,
         type: 3}
@@ -233,7 +233,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: be416857152564e0aaab66b5a8eadd84,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: be416857152564e0aaab66b5a8eadd84,
         type: 3}
@@ -337,7 +337,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: be416857152564e0aaab66b5a8eadd84,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: be416857152564e0aaab66b5a8eadd84,
         type: 3}
@@ -436,7 +436,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 54bd2f81ee347429a91e5049aa5f6273,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 54bd2f81ee347429a91e5049aa5f6273,
         type: 3}
@@ -540,7 +540,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: be416857152564e0aaab66b5a8eadd84,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: be416857152564e0aaab66b5a8eadd84,
         type: 3}
@@ -644,7 +644,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: be416857152564e0aaab66b5a8eadd84,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: be416857152564e0aaab66b5a8eadd84,
         type: 3}
@@ -743,7 +743,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 54bd2f81ee347429a91e5049aa5f6273,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 54bd2f81ee347429a91e5049aa5f6273,
         type: 3}
@@ -847,7 +847,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: be416857152564e0aaab66b5a8eadd84,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: be416857152564e0aaab66b5a8eadd84,
         type: 3}
@@ -951,7 +951,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: be416857152564e0aaab66b5a8eadd84,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: be416857152564e0aaab66b5a8eadd84,
         type: 3}
@@ -1050,7 +1050,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 54bd2f81ee347429a91e5049aa5f6273,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 54bd2f81ee347429a91e5049aa5f6273,
         type: 3}
@@ -1149,7 +1149,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 54bd2f81ee347429a91e5049aa5f6273,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 54bd2f81ee347429a91e5049aa5f6273,
         type: 3}
@@ -1253,7 +1253,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: be416857152564e0aaab66b5a8eadd84,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: be416857152564e0aaab66b5a8eadd84,
         type: 3}

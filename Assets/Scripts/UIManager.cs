@@ -19,6 +19,10 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private float _timerCountTotal;
 
+    [SerializeField]
+    private TextMeshProUGUI _winText;
+
+
     private int _enemyCountTotal;
 
     private static UIManager _instance;
@@ -49,7 +53,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-      
+        _winText.gameObject.SetActive(false);
     }
 
     public void UpdateScore(int playerScore)
@@ -67,6 +71,12 @@ public class UIManager : MonoBehaviour
     {
         enemyCount = enemyCount + _enemyCountTotal;
         _enemyCount.text = enemyCount.ToString();
+    }
+
+    public void Win()
+    {
+      _winText.gameObject.SetActive(true);
+
     }
 
 }

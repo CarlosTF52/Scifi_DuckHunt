@@ -9,6 +9,12 @@ public class Shoot : MonoBehaviour
     private GameObject _muzzleFlash;
 
     [SerializeField]
+    private GameObject _gunSpark;
+
+    [SerializeField]
+    private GameObject _bloodBurst;
+
+    [SerializeField]
     private Transform _firePoint;
 
     [SerializeField]
@@ -17,7 +23,7 @@ public class Shoot : MonoBehaviour
     private float _canFire = -1.0f;
 
     [SerializeField]
-    private LayerMask _column;
+    private LayerMask _environment;
 
     [SerializeField]
     private LayerMask _enemy;
@@ -28,6 +34,9 @@ public class Shoot : MonoBehaviour
 
     [SerializeField]
     private AudioSource _fireSource;
+
+    [SerializeField]
+    private AudioSource _bulletRicochet;
 
     private AI AI;
 
@@ -49,20 +58,24 @@ public class Shoot : MonoBehaviour
         Vector2 _crosshairPos = Mouse.current.position.ReadValue();
         Ray rayOrigin = Camera.main.ScreenPointToRay(_crosshairPos);
         RaycastHit hit;
-        if (Physics.Raycast(rayOrigin, out hit, Mathf.Infinity, _enemy | _column))
+        if (Physics.Raycast(rayOrigin, out hit, Mathf.Infinity, _enemy | _environment))
         {
             GameObject hitObject = hit.collider.gameObject;
            
-            if (hitObject != null && hitObject.transform.tag == "Enemy")
+            if (hitObject != null && hitObject.layer == 7)
             {
                 AI = hitObject.GetComponent<AI>();
                 PlayerScore(10);
                 EnemyCount(1);
                 AI.Death();
+                GameObject bloodBurstInstantiated = Instantiate(_bloodBurst, hit.point, Quaternion.identity);
+                Destroy(bloodBurstInstantiated, 0.5f);
             }
-            else if(hitObject != null && hitObject.transform.tag == "Column")
+            else if(hitObject != null && hitObject.layer == 8)
             {
-                Debug.Log("hit Column!");
+                GameObject gunsparksInstantiated = Instantiate(_gunSpark, hit.point, Quaternion.identity);
+                Destroy(gunsparksInstantiated, 0.4f);
+                _bulletRicochet.Play();
             }
 
 

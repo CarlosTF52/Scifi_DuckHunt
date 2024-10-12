@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
@@ -14,10 +13,19 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
-        _totalEnemies = 30;
+        
         StartCoroutine(SpawnEnemy());
         EnemyCountInitialUIUpdate();
         
+    }
+
+    private void Update()
+    {
+        if(_totalEnemies <= 0)
+        {
+            UIManager.Instance.Win();
+        }
+       
     }
 
     IEnumerator SpawnEnemy()
@@ -28,6 +36,7 @@ public class SpawnManager : MonoBehaviour
             GameObject enemy = EnemyPool.Instance.RequestEnemy();
             enemy.transform.position = _spawnLocation.transform.position;
             _spawnTimer = Random.Range(3, 5);
+            _totalEnemies--;
             
         }
     }
