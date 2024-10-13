@@ -10,6 +10,7 @@ TagManager:
   - HideSpot
   - Environment
   - FinalSpot
+  - Explosion
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Column
   - Enemy
   - Environment
-  - 
+  - Explosive
   - 
   - 
   - 

@@ -211,9 +211,9 @@ public class AI : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.transform.tag == "Bullet")
+        if(other.transform.tag == "Explosion")
         {
-            
+            Death();
         }
 
         if(other.transform.tag == "HideSpot")

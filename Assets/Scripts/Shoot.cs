@@ -28,6 +28,9 @@ public class Shoot : MonoBehaviour
     [SerializeField]
     private LayerMask _enemy;
 
+    [SerializeField]
+    private LayerMask _explosives;
+
     private int _scoreCount;
 
     private int _enemyCount;
@@ -37,6 +40,9 @@ public class Shoot : MonoBehaviour
 
     [SerializeField]
     private AudioSource _bulletRicochet;
+
+    [SerializeField]
+    private ExplosiveBarrel _explosiveBarrels;
 
     private AI AI;
 
@@ -58,7 +64,7 @@ public class Shoot : MonoBehaviour
         Vector2 _crosshairPos = Mouse.current.position.ReadValue();
         Ray rayOrigin = Camera.main.ScreenPointToRay(_crosshairPos);
         RaycastHit hit;
-        if (Physics.Raycast(rayOrigin, out hit, Mathf.Infinity, _enemy | _environment))
+        if (Physics.Raycast(rayOrigin, out hit, Mathf.Infinity, _enemy | _environment | _explosives))
         {
             GameObject hitObject = hit.collider.gameObject;
            
@@ -76,6 +82,11 @@ public class Shoot : MonoBehaviour
                 GameObject gunsparksInstantiated = Instantiate(_gunSpark, hit.point, Quaternion.identity);
                 Destroy(gunsparksInstantiated, 0.4f);
                 _bulletRicochet.Play();
+            }
+            else if (hitObject != null && hitObject.layer == 9)
+            {
+               _explosiveBarrels = hitObject.GetComponent<ExplosiveBarrel>();
+               _explosiveBarrels.BlowUp();
             }
 
 
