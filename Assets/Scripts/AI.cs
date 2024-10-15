@@ -39,14 +39,26 @@ public class AI : MonoBehaviour
     [SerializeField]
     private Animator _animator;
 
-    [SerializeField]
-    private int _enemyCount;
 
     [SerializeField]
     private AudioSource _monsterDieSound;
 
     [SerializeField]
     private AudioSource _monsterEscapeSound;
+
+    [SerializeField]
+    private SpawnManager _spawnManager;
+
+    [SerializeField]
+    private Shoot _player;
+
+    [SerializeField]
+    private float _walkingSpeed;
+
+    [SerializeField]
+    private float _hidingSpeed;
+
+ 
 
     private enum AIState
     {
@@ -62,9 +74,10 @@ public class AI : MonoBehaviour
     void Start()
     {
         _animator = GetComponent<Animator>();
+        _player = GameObject.Find("Player").GetComponent<Shoot>();
         _waypoints[0] = GameObject.Find("StartingPoint").GetComponent<Transform>();
         _waypoints[1] = GameObject.Find("EndPoint").GetComponent<Transform>();
-        _enemyCount = _enemyCount + 1;
+        _spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
         _seekHidespot = Random.Range(3, 5);
 
 
@@ -102,7 +115,7 @@ public class AI : MonoBehaviour
     {
         _animator.SetBool("Walking", true);
         _animator.SetBool("Hiding", false);
-        _agent.speed = 3.0f;
+        _agent.speed = _walkingSpeed;
         _agent.acceleration = 8.0f;
         _seekHidespot -= Time.deltaTime;
         if (_agent.remainingDistance < 0.5f)
@@ -185,7 +198,7 @@ public class AI : MonoBehaviour
     private void Hiding()
     {
         _agent.SetDestination(_nearestHidingSpot.position);
-        _agent.speed = 7.0f;
+        _agent.speed = _hidingSpeed;
         _agent.acceleration = 16.0f;
         _hideTime -= Time.deltaTime;
         _wasHiding = true;
@@ -206,6 +219,9 @@ public class AI : MonoBehaviour
         _agent.isStopped = true;
         Invoke("Recycle", 3);  
         _monsterDieSound.Play();
+        _spawnManager.ReduceEnemiesInScene();
+        _player.SubstractEnemy(1);
+        _player.PlayerScore(10);
     }
 
 
@@ -213,7 +229,9 @@ public class AI : MonoBehaviour
     {
         if(other.transform.tag == "Explosion")
         {
+        
             Death();
+            
         }
 
         if(other.transform.tag == "HideSpot")
@@ -234,5 +252,7 @@ public class AI : MonoBehaviour
         _currentState = AIState.Walking;
        gameObject.GetComponent<Collider>().enabled = true;
     }
+
+    
 
 }

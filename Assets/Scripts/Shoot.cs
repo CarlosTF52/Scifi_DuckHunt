@@ -85,9 +85,7 @@ public class Shoot : MonoBehaviour
                 switch (hitObject.layer)
                 {
                     case 7:
-                        AI = hitObject.GetComponent<AI>();
-                        PlayerScore(10);
-                        EnemyCount(1);
+                        AI = hitObject.GetComponent<AI>();                    
                         AI.Death();
                         GameObject bloodBurstInstantiated = Instantiate(_bloodBurst, hit.point, Quaternion.identity);
                         Destroy(bloodBurstInstantiated, 0.5f);
@@ -117,17 +115,19 @@ public class Shoot : MonoBehaviour
         Destroy(muzzleFlashInstantiated, 1.0f);
     }
 
-    private void PlayerScore(int score)
+    public void PlayerScore(int score)
     {
         _scoreCount = _scoreCount + score;
         UIManager.Instance.UpdateScore(_scoreCount);
     }
 
-    private void EnemyCount(int enemyCount)
+    public void SubstractEnemy(int enemyCount)
     {
         _enemyCount = _enemyCount - enemyCount;
         UIManager.Instance.UpdateEnemyCount(_enemyCount);
     }
+
+
 
 
 

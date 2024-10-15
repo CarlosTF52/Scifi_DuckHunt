@@ -11,6 +11,9 @@ public class SpawnManager : MonoBehaviour
     [SerializeField]
     private int _totalEnemies = 0;
 
+    [SerializeField]
+    private int _enemiesInScene;
+
     private void Start()
     {
         
@@ -21,7 +24,7 @@ public class SpawnManager : MonoBehaviour
 
     private void Update()
     {
-        if(_totalEnemies <= 0)
+        if(_enemiesInScene <= 0 && _totalEnemies <= 0)
         {
             UIManager.Instance.Win();
         }
@@ -35,8 +38,9 @@ public class SpawnManager : MonoBehaviour
             yield return new WaitForSeconds(_spawnTimer);
             GameObject enemy = EnemyPool.Instance.RequestEnemy();
             enemy.transform.position = _spawnLocation.transform.position;
-            _spawnTimer = Random.Range(3, 5);
+            _spawnTimer = Random.Range(1, 3);
             _totalEnemies--;
+            _enemiesInScene++;
             
         }
     }
@@ -45,6 +49,11 @@ public class SpawnManager : MonoBehaviour
     {
         
         UIManager.Instance.SetEnemyCount(_totalEnemies);
+    }
+
+    public void ReduceEnemiesInScene()
+    {
+        _enemiesInScene--;
     }
 
 }

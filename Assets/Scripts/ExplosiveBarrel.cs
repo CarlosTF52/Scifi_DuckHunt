@@ -16,5 +16,6 @@ public class ExplosiveBarrel : MonoBehaviour
        GameObject InstantiatedExplosion = Instantiate(_explosion, transform.position, Quaternion.identity);
        Destroy(InstantiatedExplosion, 5.0f); 
        Destroy(gameObject);
+       
     }
 }

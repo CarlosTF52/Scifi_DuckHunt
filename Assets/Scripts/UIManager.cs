@@ -47,7 +47,7 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        _timerCountTotal -= Time.deltaTime;
+        _timerCountTotal += Time.deltaTime;
         _timerCount.text = _timerCountTotal.ToString();
     }
 
