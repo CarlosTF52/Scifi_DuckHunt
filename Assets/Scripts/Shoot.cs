@@ -15,6 +15,9 @@ public class Shoot : MonoBehaviour
     private GameObject _bloodBurst;
 
     [SerializeField]
+    private GameObject _barrierHit;
+
+    [SerializeField]
     private Transform _firePoint;
 
     [SerializeField]
@@ -31,6 +34,9 @@ public class Shoot : MonoBehaviour
     [SerializeField]
     private LayerMask _explosives;
 
+    [SerializeField]
+    private LayerMask _barrier;
+
     private int _scoreCount;
 
     private int _enemyCount;
@@ -42,7 +48,13 @@ public class Shoot : MonoBehaviour
     private AudioSource _bulletRicochet;
 
     [SerializeField]
+    private AudioSource _barrierSound;
+
+    [SerializeField]
     private ExplosiveBarrel _explosiveBarrels;
+
+    [SerializeField]
+    private Barrier _barrierPrefab;
 
     private AI AI;
 
@@ -64,31 +76,40 @@ public class Shoot : MonoBehaviour
         Vector2 _crosshairPos = Mouse.current.position.ReadValue();
         Ray rayOrigin = Camera.main.ScreenPointToRay(_crosshairPos);
         RaycastHit hit;
-        if (Physics.Raycast(rayOrigin, out hit, Mathf.Infinity, _enemy | _environment | _explosives))
+        if (Physics.Raycast(rayOrigin, out hit, Mathf.Infinity, _enemy | _environment | _explosives | _barrier))
         {
             GameObject hitObject = hit.collider.gameObject;
-           
-            if (hitObject != null && hitObject.layer == 7)
+            
+            if (hitObject != null)
             {
-                AI = hitObject.GetComponent<AI>();
-                PlayerScore(10);
-                EnemyCount(1);
-                AI.Death();
-                GameObject bloodBurstInstantiated = Instantiate(_bloodBurst, hit.point, Quaternion.identity);
-                Destroy(bloodBurstInstantiated, 0.5f);
+                switch (hitObject.layer)
+                {
+                    case 7:
+                        AI = hitObject.GetComponent<AI>();
+                        PlayerScore(10);
+                        EnemyCount(1);
+                        AI.Death();
+                        GameObject bloodBurstInstantiated = Instantiate(_bloodBurst, hit.point, Quaternion.identity);
+                        Destroy(bloodBurstInstantiated, 0.5f);
+                        break;
+                    case 8:
+                        GameObject gunsparksInstantiated = Instantiate(_gunSpark, hit.point, Quaternion.identity);
+                        Destroy(gunsparksInstantiated, 0.4f);
+                        _bulletRicochet.Play();
+                        break;
+                    case 9:
+                        _explosiveBarrels = hitObject.GetComponent<ExplosiveBarrel>();
+                        _explosiveBarrels.BlowUp();
+                        break;
+                    case 10:
+                        _barrierPrefab = hitObject.GetComponent<Barrier>();
+                        _barrierPrefab.ReduceHealth();
+                        Instantiate(_barrierHit, hit.point, Quaternion.identity);
+                        _bulletRicochet.Play();
+                        _barrierSound.Play();
+                        break;
+                }
             }
-            else if(hitObject != null && hitObject.layer == 8)
-            {
-                GameObject gunsparksInstantiated = Instantiate(_gunSpark, hit.point, Quaternion.identity);
-                Destroy(gunsparksInstantiated, 0.4f);
-                _bulletRicochet.Play();
-            }
-            else if (hitObject != null && hitObject.layer == 9)
-            {
-               _explosiveBarrels = hitObject.GetComponent<ExplosiveBarrel>();
-               _explosiveBarrels.BlowUp();
-            }
-
 
         }
        
