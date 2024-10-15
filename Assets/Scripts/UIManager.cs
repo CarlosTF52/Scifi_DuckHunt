@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 
@@ -76,7 +74,9 @@ public class UIManager : MonoBehaviour
     public void Win()
     {
       _winText.gameObject.SetActive(true);
-
+        GameManager.Instance.GameOver();
     }
+
+    
 
 }
