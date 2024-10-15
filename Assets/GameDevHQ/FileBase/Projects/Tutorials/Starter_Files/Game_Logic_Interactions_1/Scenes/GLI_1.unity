@@ -7873,7 +7873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnLocation: {fileID: 396348213}
-  _totalEnemies: 20
+  _totalEnemies: 5
   _enemiesInScene: 0
 --- !u!4 &309148880
 Transform:

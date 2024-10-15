@@ -20,12 +20,17 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI _winText;
 
+    private bool _stopTimer;
+
+    private float _winTimer = 2.0f;
 
     private int _enemyCountTotal;
 
     private static UIManager _instance;
 
     public static UIManager Instance
+
+  
     {
         get
         {
@@ -45,8 +50,20 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        _timerCountTotal += Time.deltaTime;
-        _timerCount.text = _timerCountTotal.ToString();
+        if (!_stopTimer)
+        {
+            _timerCountTotal += Time.deltaTime;
+            _timerCount.text = _timerCountTotal.ToString();
+        }
+        if( _stopTimer )
+        {
+            _winTimer -= Time.deltaTime;
+        }
+        if(_winTimer < 0)
+        {
+            _winText.gameObject.SetActive(true);
+        }
+       
     }
 
     private void Start()
@@ -68,14 +85,19 @@ public class UIManager : MonoBehaviour
     public void UpdateEnemyCount(int enemyCount)
     {
         enemyCount = enemyCount + _enemyCountTotal;
+        if(enemyCount < 0)
+        {
+            enemyCount = 0;
+        }
         _enemyCount.text = enemyCount.ToString();
     }
 
     public void Win()
     {
-      _winText.gameObject.SetActive(true);
-        GameManager.Instance.GameOver();
-    }
+      
+      GameManager.Instance.GameOver();
+      _stopTimer = true;
+}
 
     
 

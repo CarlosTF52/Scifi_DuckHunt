@@ -33,7 +33,7 @@ public class SpawnManager : MonoBehaviour
 
     IEnumerator SpawnEnemy()
     {
-       while(_totalEnemies >= 0)
+       while(_totalEnemies != 0)
         {
             yield return new WaitForSeconds(_spawnTimer);
             GameObject enemy = EnemyPool.Instance.RequestEnemy();
