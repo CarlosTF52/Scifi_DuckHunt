@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
+        Debug.Log("ButtonWasPressed");
         SceneManager.LoadScene(0);
         
     }
